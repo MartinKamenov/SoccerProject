@@ -1,0 +1,19 @@
+extends shared/master
+
+block body
+    div(id='players-container')
+        each player in players
+            div(class='player-card rare_'+player.quality)
+                img(class='headshot-img', src=player.headshotImgUrl)
+                p(class='position')=player.position
+                img(class='club-img', src=player.club.imageUrls.dark.medium)
+                img(class='nation-img', src=player.nation.imageUrls.medium)
+                section(class='details')
+                    if player.commonName!=''
+                        p(class='name')=player.commonName
+                    else
+                        p(class='name')=player.firstName+' '+player.lastName
+                    section(class='price')
+                        p=player.rating * 1000000
+                            span(class='glyphicon glyphicon-euro')
+                    

@@ -1,0 +1,61 @@
+doctype html
+html(lang='en')
+	head
+		meta(charset='utf-8')
+		meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+		meta(name='description', content='')
+		meta(name='author', content='')
+		title TellUs
+		link(rel='stylesheet', href='/public/css/main.css')
+		link(rel='stylesheet', href='/libs/bootstrap/dist/css/bootstrap.css')
+		link(rel='icon', href='/public/images/icon.png')
+
+		// Custom styles for this template
+		// Temporary navbar container fix
+		style.
+			.navbar-toggler {
+			z-index: 1;
+			}
+			@media (max-width: 576px) {
+			nav > .container {
+			width: 100%;
+			}
+			}
+
+	body
+		nav.navbar.fixed-top.navbar-toggleable-md.navbar-inverse.bg-inverse
+			button#navbar-toggler.navbar-toggler.navbar-toggler-right(type='button', data-toggle='collapse', data-target='#navbarExample', aria-controls='navbarExample', aria-expanded='false', aria-label='Toggle navigation')
+				span.navbar-toggler-icon
+			.container
+				.wrapper
+					span.square.individual
+						a#title-nav-button.ninth.before.after(href='/') TellUS
+				#navbarExample.collapse.navbar-collapse
+					ul.navbar-nav.ml-auto
+						if user
+							li.nav-item.naveffect
+								a#nav-button-user.nav-link(href='/users/'+user.username)
+									span.blue(data-hover=user.username.substring(0, 25))=user.username.substring(0, 25)
+							//- li.nav-item.naveffect
+							//- 	a.nav-link(href='/users/settings')
+							//- 		span.blue(data-hover='Settings') Settings
+						else
+							li.nav-item.naveffect
+								a.nav-link#nav-button-login(href='/auth/login')
+									span(data-hover='Login') Login
+							li.nav-item.naveffect
+								a.nav-link#nav-button-register(href='/auth/register')
+									span(data-hover='Register') Register
+						li.nav-item.naveffect
+							a.nav-link#nav-button-about(href='/about/')
+								span(data-hover='About') About
+						if user
+							li.nav-item.naveffect
+								a#nav-button-logout.nav-link(href='/auth/logout')
+									span(data-hover='Logout') Logout					
+	block body
+
+	// Footer
+	footer.py-5.bg-inverse
+		.container
+			p.m-0.text-center.text-white Copyright © Tell Us 2017

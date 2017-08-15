@@ -1,6 +1,13 @@
 {
-  "dependencies": {
-    "express": "^4.15.4",
-    "pug": "^2.0.0-rc.3"
-  }
+    "scripts": {
+        "start": "node soccerProject/app.js"
+    },
+    "dependencies": {
+        "bootstrap": "^3.3.7",
+        "express": "^4.15.4",
+        "http": "^0.0.0",
+        "jquery": "^3.2.1",
+        "pug": "^2.0.0-rc.3",
+        "request": "^2.81.0"
+    }
 }

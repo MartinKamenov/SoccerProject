@@ -1,0 +1,335 @@
+body {
+    font-family: sans-serif;
+    overflow-x: hidden;
+    background-repeat: no-repeat;
+    overflow-y: scroll;
+}
+
+.hidden {
+    display: none;
+}
+
+.toastr-position {
+    top: 60px;
+    right: 5px;
+}
+
+.navbar {
+    transition: all 0.1s ease-in-out;
+}
+
+#navigation {
+    border-radius: 0;
+}
+
+#container {
+    margin: 0 auto;
+    max-width: 1600px;
+}
+
+#marketplace {
+    text-align: center;
+}
+
+.checkbox-inline {
+    cursor: auto;
+}
+
+.checkbox-inline label {
+    font-weight: normal;
+}
+
+#players-container {
+    text-align: center;
+}
+
+.player-card {
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
+    text-align: center;
+    font-weight: bold;
+    width: 175px;
+    height: 270px;
+    margin: 6px;
+    z-index: 1000;
+}
+
+.player-card.legend {
+    background: url('./images/card-backgrounds/legend.png');
+}
+
+.player-card.rare_gold {
+    background: url('./images/card-backgrounds/rare_gold.png');
+}
+
+.player-card.gold {
+    background: url('./images/card-backgrounds/gold.png');
+}
+
+.player-card.rare_silver {
+    background: url('./images/card-backgrounds/rare_silver.png');
+}
+
+.player-card.silver {
+    background: url('./images/card-backgrounds/silver.png');
+}
+
+.player-card.rare_bronze {
+    background: url('./images/card-backgrounds/rare_bronze.png');
+}
+
+.player-card.bronze {
+    background: url('./images/card-backgrounds/bronze.png');
+}
+
+.player-card .headshot-img {
+    position: absolute;
+    top: 42.5px;
+    left: 72.5px;
+    width: 92px;
+    height: 92px;
+    z-index: 1000;
+}
+
+.player-card .position,
+.player-card .club-img,
+.player-card .nation-img {
+    position: absolute;
+    left: 30px;
+}
+
+.player-card .position {
+    display: inline-block;
+    width: 40px;
+    font-size: 17px;
+    top: 25px;
+    left: 30px;
+}
+
+.player-card .club-img {
+    top: 55px;
+}
+
+.player-card .nation-img {
+    top: 100px;
+}
+
+.player-card .details {
+    position: absolute;
+    width: 175px;
+    top: 135px;
+}
+
+.player-card .name {
+    margin-top: 2.5px;
+}
+
+.player-card .price {
+    margin-top: 22px;
+}
+
+.pre-loader {
+    display: none;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    background: url("./images/preloader.gif") center no-repeat #fff;
+}
+
+#video-container {
+    position: absolute;
+    top: 52px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    max-height: 100%;
+    overflow: hidden;
+    z-index: -1;
+}
+
+#video {
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+#boxes {
+    position: absolute;
+    bottom: 1%;
+    width: 100%;
+    z-index: 1;
+    text-align: center;
+}
+
+.box {
+    display: inline-block;
+    text-align: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 0.1%;
+    width: 32.5%;
+    height: 80px;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.box:hover {
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.box.blue:hover {
+    background: rgba(33, 150, 243, 0.8);
+}
+
+.box>a {
+    display: block;
+    height: 80px;
+    line-height: 80px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.social-media>ul {
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.social-media>ul>li {
+    display: inline-block;
+    vertical-align: middle;
+    height: 28px;
+    margin: 0;
+}
+
+.additional-player-info {
+    position: relative;
+    left: 10px;
+    bottom: 10px;
+    text-align: left;
+}
+
+.btn-sell-player {
+    position: relative;
+    left: 50px;
+    bottom: 50px;
+}
+
+.squad-player-card {
+    background: url("./images/squad-card-template.png");
+    background-repeat: no-repeat;
+    width: 100px;
+    height: 150px;
+    background-size: 100%;
+    cursor: pointer;
+}
+
+.squad-player-card .add-to-squad-image {
+    width: 45%;
+    height: 30%;
+    position: relative;
+    left: 30%;
+    top: 15%;
+    z-index: 9990
+}
+
+.squad-player-card .squad-player-image {
+    width: 100%;
+    height: 50%;
+    position: relative;
+    left: 2%;
+    top: 7%;
+}
+
+.squad-player-card .squad-player-name {
+    position: absolute;
+    color: black;
+    top: 120px;
+    right: 25px;
+    font-size: 20px;
+    text-align: center;
+}
+
+#squad-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url("./images/football-stadium-bg.jpeg");
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    padding-top: 100px;
+    padding-left: 10%;
+    width: 100%;
+    height: 110%;
+    z-index: -1;
+}
+
+.player-position {
+    color: gold;
+    position: absolute;
+    top: 60%;
+    left: 40%;
+}
+
+.blurred {
+    -webkit-filter: blur(5px);
+    -moz-filter: blur(5px);
+    -o-filter: blur(5px);
+    -ms-filter: blur(5px);
+    filter: blur(5px);
+}
+
+#add-to-squad-container {
+    position: absolute;
+    z-index: 999;
+    width: 60%;
+    height: 60%;
+    overflow-y: scroll;
+    margin-left: 20%;
+    margin-top: 5%;
+}
+
+.scaled {
+    transform: scale(0.8, 0.8);
+    -ms-transform: scale(0.8, 0.8);
+    /* IE 9 */
+    -webkit-transform: scale(0.8, 0.8);
+    /* Safari and Chrome */
+    -o-transform: scale(0.8, 0.8);
+    /* Opera */
+    -moz-transform: scale(0.8, 0.8);
+    /* Firefox */
+}
+
+#wheel-container {
+    position: relative;
+    text-align: center;
+}
+
+#wheel-pointer {
+    top: -25px;
+    height: 50px;
+    position: absolute;
+    left: 50.5%;
+    transform: translate(-50%);
+    z-index: 2;
+}
+
+#wheel {
+    border-radius: 50%;
+    cursor: pointer;
+}
