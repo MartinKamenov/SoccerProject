@@ -1,0 +1,8 @@
+extends shared/master
+
+block body
+    div(class='container')
+        if player.commonName!=''
+            h1='Player: '+player.commonName
+        else
+            h1='Player: ' + player.firstName + ' ' + player.lastName

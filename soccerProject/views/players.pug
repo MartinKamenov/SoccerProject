@@ -3,7 +3,7 @@ extends shared/master
 block body
     div(id='players-container')
         each player in players
-            div(class='player-card rare_'+player.quality)
+            div(class='player-card '+ player.color)
                 img(class='headshot-img', src=player.headshotImgUrl)
                 p(class='position')=player.position
                 img(class='club-img', src=player.club.imageUrls.dark.medium)
@@ -14,6 +14,7 @@ block body
                     else
                         p(class='name')=player.firstName+' '+player.lastName
                     section(class='price')
-                        p=player.rating * 1000000
-                            span(class='glyphicon glyphicon-euro')
+                        a(href='/'+player.nation.name+'/'+player.baseId)
+                            button(class='show-player', class='btn btn-primary')='Negotate'
+                            
                     
