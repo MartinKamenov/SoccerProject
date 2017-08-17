@@ -17,21 +17,26 @@ const attach = function(app, database) {
                 }
             });
         })
-        .get('/:country/:id', (req, res) => {
-            const name = req.params.name;
+        .get('/:country/:position/:clubId/:id', (req, res) => {
+            const quality = req.params.quality;
             const country = req.params.country;
+            const position = req.params.position;
+            const clubId = req.params.clubId;
             const id = req.params.id;
             request({
                 url: 'http://www.easports.com/fifa/ultimate-team/api/fut/item?country=' + country +
+                    '&club=' + clubId + '&position=' + position +
                     '&quality=bronze%2Crare_bronze%2Csilver%2Crare_silver%2Cgold%2Crare_gold',
                 json: true
             }, async function(error, response, body) {
                 if (!error && response.statusCode === 200) {
                     const players = body.items;
-                    const player = players.find((p) => p.id == id);
+                    var player = players.find((p) => p.baseId == id);
                     if (player) {
                         console.log(player);
                         res.status(200).render('player', { player });
+                    } else {
+                        res.status(404).send('Player was not found');
                     }
                 }
             });

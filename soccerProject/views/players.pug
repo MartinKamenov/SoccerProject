@@ -14,7 +14,7 @@ block body
                     else
                         p(class='name')=player.firstName+' '+player.lastName
                     section(class='price')
-                        a(href='/'+player.nation.name+'/'+player.baseId)
+                        a(href='/'+player.nation.name+'/'+player.position+'/'+player.club.id+'/'+player.baseId)
                             button(class='show-player', class='btn btn-primary')='Negotate'
                             
                     

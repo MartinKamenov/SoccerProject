@@ -3,11 +3,19 @@
         "start": "node soccerProject/app.js"
     },
     "dependencies": {
+        "body-parser": "^1.17.2",
         "bootstrap": "^3.3.7",
+        "connect-flash": "^0.1.1",
+        "cookie-parser": "^1.4.3",
+        "crypto-js": "^3.1.9-1",
         "express": "^4.15.4",
+        "express-session": "^1.15.5",
         "http": "^0.0.0",
         "jquery": "^3.2.1",
         "mongodb": "^2.2.31",
+        "multer": "^1.3.0",
+        "passport": "^0.4.0",
+        "passport-local": "^1.0.0",
         "pug": "^2.0.0-rc.3",
         "request": "^2.81.0"
     }

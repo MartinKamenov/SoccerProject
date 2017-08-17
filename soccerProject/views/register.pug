@@ -1,0 +1,40 @@
+extends shared/master
+
+block body
+    .container
+        br
+        if message
+            h1#registering-error-message.error-message=message
+        form.form-horizontal(action='', method='POST')
+            fieldset
+                #legend
+                    legend Register
+                .control-group
+                    // Username
+                    label.control-label(for='username') Username
+                    .controls
+                        input#username.input-xlarge(required, type='text', name='username', placeholder='', value=username, autofocus, minlength='3', maxlength='25',pattern='^[0-9A-Za-z\s\-]+$')
+                        p.help-block Username can contain any letters or numbers, without spaces, between 3 and 25 characters.
+                .control-group
+                    // E-mail
+                    label.control-label(for='email') E-mail
+                    .controls
+                        input#email.input-xlarge(required, type='email', name='email', placeholder='', value=email)
+                        p.help-block Please provide your E-mail
+                .control-group
+                    // Password
+                    label.control-label(for='password') Password
+                    .controls
+                        input#password.input-xlarge(required, type='password', name='password', placeholder='', value=password, minlength='4')
+                        p.help-block Password should be at least 4 characters
+                .control-group
+                    // Password
+                    label.control-label(for='password_confirm') Password (Confirm)
+                    .controls
+                        input#password_confirm.input-xlarge(required, type='password', name='password_confirm', placeholder='', value=password, minlength='4')
+                        p.help-block Please confirm password
+                .control-group
+                    // Button
+                    .controls
+                        button#register-btn.btn.btn-primary(type='submit', value='submit') Register
+                br
