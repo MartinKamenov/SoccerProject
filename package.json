@@ -1,8 +1,10 @@
 {
     "scripts": {
-        "start": "node soccerProject/app.js"
+        "start": "nodemon soccerProject/app.js",
+        "begin": "node soccerProject/app.js"
     },
     "dependencies": {
+        "@types/tether": "^1.4.2",
         "body-parser": "^1.17.2",
         "bootstrap": "4.0.0-alpha.6",
         "connect-flash": "^0.1.1",
@@ -17,6 +19,7 @@
         "passport": "^0.4.0",
         "passport-local": "^1.0.0",
         "pug": "^2.0.0-rc.3",
-        "request": "^2.81.0"
+        "request": "^2.81.0",
+        "tether": "^1.4.0"
     }
 }
