@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const passport = require('passport');
 const multer = require('multer');
-const upload = multer({ dest: 'Forum/static/images/profile/' });
+const upload = multer({ dest: 'soccerProject/public/css/images/profile' });
 const controller = require('./auth-controller');
 
 

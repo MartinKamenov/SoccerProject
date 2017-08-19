@@ -1,0 +1,16 @@
+extends shared/master
+
+block body
+    .container
+        form.form-horizontal(action='', method='POST', enctype='multipart/form-data')
+            .control-group
+                // Profile picture
+                label.control-label(for='pic') Profile picture
+                .controls
+                    input#pic.input-xlarge(type='file', name='pic', accept='image/*', value=pic)
+                    p.help-block Any image file is accepted (.jpeg, .png, etc...)
+            .control-group
+                // Button
+                .controls
+                    button.btn.btn-primary(type='submit', value='submit') Add Picture
+            br
