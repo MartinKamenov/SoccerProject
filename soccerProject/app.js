@@ -1,6 +1,6 @@
 const express = require('express');
 const pug = require('pug');
-const homeRouter = require('./static/routes/home-router');
+const playerRouter = require('./static/routes/players/player-route');
 const auth = require('./static/routes/auth/auth-route');
 const path = require('path');
 const bodyParser = require('body-parser');
@@ -20,7 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 authConfig(app, database);
-homeRouter(app, database);
+playerRouter(app, database);
 auth(app, database);
 
 app.listen(3001, () => {

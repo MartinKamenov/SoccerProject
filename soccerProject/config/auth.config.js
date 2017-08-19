@@ -104,17 +104,18 @@ const configAuth = (app, database, registeredUser) => {
         }
     ));
 
-    app.use(passport.initialize());
-    app.use(passport.session());
     app.use(session({
         secret: 'sessionSecret',
         resave: false,
         saveUninitialized: true,
         cookie: {
-            maxAge: 600000000,
+            maxAge: 600000000000,
         },
     }));
     app.use(flash());
+    app.use(passport.initialize());
+    app.use(passport.session());
+
 
     passport.serializeUser((user, done) => {
         done(null, user._id);
