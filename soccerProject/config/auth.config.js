@@ -88,6 +88,7 @@ const configAuth = (app, database, registeredUser) => {
                     // input it in the database:
                     password = Crypto.encrypt(password).toString();
                     const newUser = { username, password, email, posts };
+                    database.insert('team/' + username, { squad: [], budget: 1000000 });
                     return database.insert('users', newUser)
                         .then(() => {
                             // const message = 'Successfully Registered';

@@ -9,6 +9,9 @@ const attach = (app, database) => {
         })
         .get('/:country/:position/:clubId/:id', (req, res) => {
             controller.showPlayer(req, res);
+        })
+        .post('/:country/:position/:clubId/:id', (req, res) => {
+            controller.negotiatePlayer(req, res, database);
         });
     app.use('/', router);
 };

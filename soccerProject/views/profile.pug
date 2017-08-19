@@ -1,0 +1,28 @@
+extends shared/master
+
+block body
+    .container
+        h1.my-4=foundUser.username
+        if foundUser.pictureName
+                img.img-fluid.rounded.mb-3.mb-md-0(src=`/static/images/profile/${foundUser.pictureName}`, alt='', height="150" width="150")
+        else
+            img.img-fluid.rounded.mb-3.mb-md-0(src=`/static/images/profile/default.jpg`, alt='', height="150" width="150")
+        //small Secondary Text
+        h2
+            |User squad:
+        hr
+        each player in squad
+            div(class='player-card '+ player.color)
+                img(class='headshot-img', src=player.headshotImgUrl)
+                p(class='position')=player.position
+                img(class='club-img', src=player.club.imageUrls.dark.medium)
+                img(class='nation-img', src=player.nation.imageUrls.medium)
+                section(class='details')
+                    if player.commonName!=''
+                        p(class='name')=player.commonName
+                    else
+                        p(class='name')=player.firstName+' '+player.lastName
+                    section(class='price')
+                        p(class='name')='Overall: '+player.rating
+        // /.row
+        hr

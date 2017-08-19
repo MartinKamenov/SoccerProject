@@ -3,6 +3,7 @@ const pug = require('pug');
 const playerRouter = require('./static/routes/players/player-route');
 const auth = require('./static/routes/auth/auth-route');
 const path = require('path');
+const usersRoute = require('./static/routes/users/users-route');
 const bodyParser = require('body-parser');
 const Database = require('./database/mongodb');
 const authConfig = require('./config/auth.config');
@@ -21,6 +22,7 @@ app.use(bodyParser.json());
 
 authConfig(app, database);
 playerRouter(app, database);
+usersRoute(app, database);
 auth(app, database);
 
 app.listen(3001, () => {

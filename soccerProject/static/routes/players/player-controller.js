@@ -53,6 +53,45 @@ const controller = {
                 }
             }
         });
+    },
+    negotiatePlayer(req, res, database) {
+        console.log('here')
+        const user = req.user;
+        if (!user) {
+            res.redirect('404');
+        }
+        const quality = req.params.quality;
+        const country = req.params.country;
+        const position = req.params.position;
+        const clubId = req.params.clubId;
+        const id = req.params.id;
+        request({
+            url: 'http://www.easports.com/fifa/ultimate-team/api/fut/item?country=' + country +
+                '&club=' + clubId + '&position=' + position +
+                '&quality=bronze%2Crare_bronze%2Csilver%2Crare_silver%2Cgold%2Crare_gold',
+            json: true
+        }, async function(error, response, body) {
+            if (!error && response.statusCode === 200) {
+                const players = body.items;
+                var player = players.find((p) => p.baseId == id);
+                if (player) {
+                    console.log(player);
+                    database.showAll('team/' + user.username).then((teams) => {
+                        const team = teams[0];
+                        var samePlayer = team.squad.find((p) => p.baseId == player.id);
+                        if (samePlayer) {
+                            res.render('404', { message: 'Player already in the squad' });
+                        } else {
+                            team.squad.push(player);
+                            database.update('team/' + user.username, {}, team);
+                        }
+                    });
+                    res.redirect('/');
+                } else {
+                    res.status(404).send('Player was not found');
+                }
+            }
+        });
     }
 };
 // @ts-ignore
