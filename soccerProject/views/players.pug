@@ -1,6 +1,20 @@
 extends shared/master
 
 block body
+    div.container
+    div(action='', method='POST', class="form-group", id="fiters")
+        div(class="form-group form-inline")
+            form(action='', method='POST')
+                input(type="text" name="name" class="form-control input-lg"
+                id="filter-name" placeholder="Name" value autocomplete="off")
+                input(type="text" name="country" class="form-control input-lg"
+                id="filter-country" placeholder="Country" value autocomplete="off")
+                input(type="text" name="position" class="form-control input-lg"
+                id="filter-position" placeholder="Position" value autocomplete="off")
+                input(type="text" name="page" class="form-control input-lg"
+                id="filter-page" placeholder="Page" value autocomplete="off")
+                button.btn.btn-danger(type='submit', value='submit') Search
+
     div(id='players-container')
         each player in players
             div(class='player-card '+ player.color)

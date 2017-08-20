@@ -657,3 +657,12 @@ form button {
     background-color: #292B2C;
     border: 5px solid #d73444;
 }
+
+.your-class input {
+    float: left;
+}
+
+form {
+    display: inline-block;
+    text-align: center;
+}

@@ -2,11 +2,19 @@ extends shared/master
 
 block body
     div(class='container')
-        img(src=player.headshotImgUrl)
-        if player.commonName!=''
-            h1='Player: '+player.commonName
-        else
-            h1='Player: ' + player.firstName + ' ' + player.lastName
-        h2='Pos: '+player.position + ' Ovr: '+player.rating
-        form.form-horizontal(action='', method='POST')
-            button#register-btn.btn.btn-success(type='submit', value='submit') Buy
+        div(class='player-card '+ player.color)
+            img(class='headshot-img', src=player.headshotImgUrl)
+            p(class='position')=player.position
+            img(class='club-img', src=player.club.imageUrls.dark.medium)
+            img(class='nation-img', src=player.nation.imageUrls.medium)
+            section(class='details')
+                if player.commonName!=''
+                    p(class='name')=player.commonName
+                else
+                    p(class='name')=player.firstName+' '+player.lastName
+                section(class='price')
+                    p(class='name')='Overall: '+player.rating
+        br
+        if player.rating > 84
+            button#register-btn.btn.btn-success(type='submit', value='submit')=player.rating
+        button#register-btn.btn.btn-danger(type='submit', value='submit') Buy Later

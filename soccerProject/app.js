@@ -12,6 +12,14 @@ const connectionString = 'mongodb://localhost/footballproject';
 
 const database = new Database(connectionString);
 
+//drops db
+/*database.showAll('users').then((u) => {
+    for (var i = 0; i < u.length; i++) {
+        database.deleteAll('team/' + u[i].username);
+    }
+});
+database.deleteAll('users');*/
+
 const app = express();
 app.set('view engine', 'pug');
 app.set('views', __dirname + '\\views');

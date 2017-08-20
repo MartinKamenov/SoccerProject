@@ -7,6 +7,9 @@ const attach = (app, database) => {
         .get('/', (req, res) => {
             controller.showPlayers(req, res);
         })
+        .post('/', (req, res) => {
+            controller.showPlayers(req, res);
+        })
         .get('/:country/:position/:clubId/:id', (req, res) => {
             controller.showPlayer(req, res);
         })

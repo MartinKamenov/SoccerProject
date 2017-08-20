@@ -5,9 +5,26 @@ const paging = require('./../../../models/paging');
 const controller = {
     showPlayers(req, res) {
         const user = req.user;
-        const page = paging.choosePage(req.query.page);
+        const body = req.body;
+        var addition = '';
+        var page = paging.choosePage(req.query.page);
+        if (body) {
+            if (body.position) {
+                addition += '&position=' + body.position;
+            }
+            if (body.name) {
+                addition += '&name=' + body.name;
+            }
+            if (body.page) {
+                page = body.page;
+            }
+            if (body.country) {
+                addition += '&country=' + body.country;
+            }
+        }
         request({
-            url: 'http://www.easports.com/fifa/ultimate-team/api/fut/item?page=' + page + '&quality=bronze%2Crare_bronze%2Csilver%2Crare_silver%2Cgold%2Crare_gold',
+            url: 'http://www.easports.com/fifa/ultimate-team/api/fut/item?page=' + page + '&quality=bronze%2Crare_bronze%2Csilver%2Crare_silver%2Cgold%2Crare_gold' +
+                addition,
             json: true
         }, async function(error, response, body) {
             if (!error && response.statusCode === 200) {
