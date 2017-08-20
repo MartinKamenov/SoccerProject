@@ -1,6 +1,7 @@
 const http = require('http');
 const request = require("request");
 const paging = require('./../../../models/paging');
+const pricing = require('./../../../models/pricing');
 
 const controller = {
     showPlayers(req, res) {
@@ -16,7 +17,7 @@ const controller = {
                 addition += '&name=' + body.name;
             }
             if (body.page) {
-                page = body.page;
+                page = paging.choosePage(body.page);
             }
             if (body.country) {
                 addition += '&country=' + body.country;
@@ -64,7 +65,8 @@ const controller = {
                 var player = players.find((p) => p.baseId == id);
                 if (player) {
                     console.log(player);
-                    res.status(200).render('player', { user, player });
+                    const price = pricing.choosePrice(player.rating, player.position, player.age);
+                    res.status(200).render('player', { user, player, price });
                 } else {
                     res.status(404).send('Player was not found');
                 }

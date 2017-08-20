@@ -661,8 +661,3 @@ form button {
 .your-class input {
     float: left;
 }
-
-form {
-    display: inline-block;
-    text-align: center;
-}
