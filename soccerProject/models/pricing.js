@@ -17,9 +17,48 @@ class Pricer {
                 position == 'LWB' || position == 'RWB') {
                 price = (rating - 85) * 6000000 + 40000000;
             }
+        } else if (rating <= 84 && rating > 74) {
+            if (position == 'ST' || position == 'CF' || position == 'LF' ||
+                position == 'RF' || position == 'LW' || position == 'RW') {
+                price = (rating - 75) * 5250000 + 800000;
+            }
+            if (position == 'GK') {
+                price = (rating - 75) * 2400000 + 4000000;
+            }
+            if (position == 'CAM' || position == 'RM' || position == 'LM' ||
+                position == 'CM' || position == 'CDM') {
+                price = (rating - 75) * 4000000 + 5000000;
+            }
+            if (position == 'LB' || position == 'RB' || position == 'CB' ||
+                position == 'LWB' || position == 'RWB') {
+                price = (rating - 75) * 3000000 + 5000000;
+            }
+        } else if (rating <= 74 && rating > 67) {
+            if (position == 'ST' || position == 'CF' || position == 'LF' ||
+                position == 'RF' || position == 'LW' || position == 'RW') {
+                price = (rating - 68) * 500000 + 500000;
+            }
+            if (position == 'GK') {
+                price = (rating - 68) * 500000 + 3000000;
+            }
+            if (position == 'CAM' || position == 'RM' || position == 'LM' ||
+                position == 'CM' || position == 'CDM') {
+                price = (rating - 68) * 500000 + 4000000;
+            }
+            if (position == 'LB' || position == 'RB' || position == 'CB' ||
+                position == 'LWB' || position == 'RWB') {
+                price = (rating - 68) * 500000 + 40000000;
+            }
+        } else if (rating <= 67 && rating > 61) {
+            if (position == 'ST' || position == 'CF' || position == 'LF' ||
+                position == 'RF' || position == 'LW' || position == 'RW') {
+                price = (rating - 62) * 200000 + 3000000;
+            }
+            if (position == 'GK') {
+                price = (rating - 62) * 100000 + 200000;
+            }
+            return price;
         }
-        return price;
     }
-}
 
-module.exports = new Pricer();
+    module.exports = new Pricer();
