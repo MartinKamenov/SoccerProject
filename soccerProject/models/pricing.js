@@ -57,8 +57,10 @@ class Pricer {
             if (position == 'GK') {
                 price = (rating - 62) * 100000 + 200000;
             }
-            return price;
         }
-    }
+        return price;
 
-    module.exports = new Pricer();
+    }
+}
+
+module.exports = new Pricer();
