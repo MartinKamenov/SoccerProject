@@ -20,7 +20,7 @@ class Pricer {
         } else if (rating <= 84 && rating > 74) {
             if (position == 'ST' || position == 'CF' || position == 'LF' ||
                 position == 'RF' || position == 'LW' || position == 'RW') {
-                price = (rating - 75) * 5250000 + 800000;
+                price = (rating - 75) * 5250000 + 8000000;
             }
             if (position == 'GK') {
                 price = (rating - 75) * 2400000 + 4000000;
@@ -36,7 +36,7 @@ class Pricer {
         } else if (rating <= 74 && rating > 67) {
             if (position == 'ST' || position == 'CF' || position == 'LF' ||
                 position == 'RF' || position == 'LW' || position == 'RW') {
-                price = (rating - 68) * 500000 + 500000;
+                price = (rating - 68) * 1000000 + 500000;
             }
             if (position == 'GK') {
                 price = (rating - 68) * 500000 + 3000000;
@@ -52,12 +52,28 @@ class Pricer {
         } else if (rating <= 67 && rating > 61) {
             if (position == 'ST' || position == 'CF' || position == 'LF' ||
                 position == 'RF' || position == 'LW' || position == 'RW') {
-                price = (rating - 62) * 200000 + 3000000;
+                price = (rating - 62) * 50000 + 100000;
             }
             if (position == 'GK') {
                 price = (rating - 62) * 100000 + 200000;
             }
+        } else if (rating <= 61 && rating > 55) {
+            if (position == 'ST' || position == 'CF' || position == 'LF' ||
+                position == 'RF' || position == 'LW' || position == 'RW') {
+                price = (rating - 56) * 9000 + 50000;
+            }
+        } else if (rating <= 55 && rating > 49) {
+            if (position == 'ST' || position == 'CF' || position == 'LF' ||
+                position == 'RF' || position == 'LW' || position == 'RW') {
+                price = (rating - 50) * 1500 + 40000;
+            }
+        } else if (rating <= 49) {
+            if (position == 'ST' || position == 'CF' || position == 'LF' ||
+                position == 'RF' || position == 'LW' || position == 'RW') {
+                price = 39000 - (49 - rating) * 1000;
+            }
         }
+
         return price;
 
     }
