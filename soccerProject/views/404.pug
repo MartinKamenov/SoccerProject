@@ -1,0 +1,20 @@
+extends shared/master
+
+block body
+    .container
+        .row
+            .col-md-12
+                .error-template
+                    h1.black
+                        | Oops!
+                    h2.black
+                        | 404 Not Found
+                    .error-details=message
+                    .error-actions
+                        a.btn.btn-primary.btn-lg(href='/')
+                            span.glyphicon.glyphicon-home
+                            |                         Take Me Home
+                        a.btn.btn-default.btn-lg(href='/about')
+                            span.glyphicon.glyphicon-envelope
+                            |  Contact Support
+    link(rel='stylesheet', href='/static/css/404style.css')

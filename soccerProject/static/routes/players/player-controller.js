@@ -74,7 +74,6 @@ const controller = {
         });
     },
     negotiatePlayer(req, res, database) {
-        console.log('here')
         const user = req.user;
         if (!user) {
             res.redirect('404');
@@ -94,18 +93,20 @@ const controller = {
                 const players = body.items;
                 var player = players.find((p) => p.baseId == id);
                 if (player) {
-                    console.log(player);
+                    const price = pricing.choosePrice(player.rating, player.position, player.age);
                     database.showAll('team/' + user.username).then((teams) => {
                         const team = teams[0];
                         var samePlayer = team.squad.find((p) => p.baseId == player.id);
                         if (samePlayer) {
                             res.render('404', { message: 'Player already in the squad' });
+                        } else if (team.budget < price) {
+                            res.render('404', { message: 'You dont have enougth budget' });
                         } else {
                             team.squad.push(player);
                             database.update('team/' + user.username, {}, team);
+                            res.redirect('/');
                         }
                     });
-                    res.redirect('/');
                 } else {
                     res.status(404).send('Player was not found');
                 }

@@ -15,6 +15,9 @@ block body
                 section(class='price')
                     p(class='name')='Overall: '+player.rating
         br
-        
-        button#register-btn.btn.btn-success(type='submit', value='submit')=price
-        button#register-btn.btn.btn-danger(type='submit', value='submit') Buy Later
+
+        div(action='', method='POST')
+            div(class="form-group form-inline")
+                form(action='', method='POST')
+                    button#register-btn.btn.btn-success(type='submit', value='submit')=price
+                    button#register-btn.btn.btn-danger(type='submit', value='submit') Buy Later
